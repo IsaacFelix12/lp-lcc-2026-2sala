@@ -27,11 +27,15 @@ public class Livro {
     public void setTitulo(String titulo){
         this.titulo = titulo;
     }
-    public void setAuto(String autor){
+    public void setAutor(String autor){
         this.autor = autor;
     }
-    public void setTitulo(int ano){
-        this.ano = ano;
+    public void setAno(int ano){
+        if (ano <= 0 ) {
+            throw new IllegalArgumentException("Ano inválido!");
+        } else{
+            this.ano = ano;
+        }
     }
 
     @Override

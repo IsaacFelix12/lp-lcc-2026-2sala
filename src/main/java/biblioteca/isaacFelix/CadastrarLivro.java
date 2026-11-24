@@ -9,25 +9,29 @@ public class CadastrarLivro {
         this.biblioteca = biblioteca;
     }
 
-    public void Cadastrar() {
-        Scanner leitor = new Scanner(System.in);
-
-        System.out.println("---Cadastro de livro---");
-
-        System.out.println("titulo: ");
+    public void cadastrar(Scanner leitor) {
+        System.out.println("--- Cadastro de livro ---");
+        System.out.print("Título: ");
         String titulo = leitor.nextLine();
 
-        System.out.println("Autor: ");
+        System.out.print("Autor: ");
         String autor = leitor.nextLine();
 
-        System.out.println("Ano Lido: ");
-        int ano = Integer.parseInt(leitor.nextLine());
+        int ano = lerAnoValido(leitor);
 
-        Livro novoLivro = new Livro(titulo,autor,ano);
+        Livro novoLivro = new Livro(titulo, autor, ano);
         biblioteca.cadastrarLivro(novoLivro);
+        System.out.println("Livro cadastrado!");
+    }
 
-        System.out.println("Livro Cadastrado");
-
-        leitor.close();
+    private int lerAnoValido(Scanner leitor) {
+        while (true) {
+            System.out.print("Ano Lido: ");
+            try {
+                return Integer.parseInt(leitor.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Digite um ano numérico válido.");
+            }
+        }
     }
 }
