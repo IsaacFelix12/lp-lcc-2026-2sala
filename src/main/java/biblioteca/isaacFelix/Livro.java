@@ -9,7 +9,7 @@ public class Livro {
     public Livro(){
     }
 
-    public Livro(String titulo,String autor){
+    public Livro(String titulo,String autor,int ano){
         this.titulo = titulo;
         this.autor = autor;
         this.ano = ano;
@@ -34,5 +34,8 @@ public class Livro {
         this.ano = ano;
     }
 
-
+    @Override
+    public String toString() {
+        return "Título: " + titulo + " | Autor: " + autor + " | Ano Lido: " + ano;
+    }
 }
