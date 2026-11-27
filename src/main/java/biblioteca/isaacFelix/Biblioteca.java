@@ -18,12 +18,16 @@ public class Biblioteca {
         List<Livro> encontrados = new ArrayList<>();
 
         for (Livro livro : livros) {
-            if (livro.getTitulo().toLowerCase().contains(titulo.toLowerCase())) {
+            if (livro.getTitulo().equalsIgnoreCase(titulo.trim())) {
                 encontrados.add(livro);
             }
         }
 
         return encontrados;
+    }
+
+    public boolean jaExiste(String titulo) {
+        return !buscaPorTitulo(titulo).isEmpty();
     }
 
     public List<Livro> listarTodos() {
