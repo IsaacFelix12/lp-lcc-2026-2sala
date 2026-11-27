@@ -17,6 +17,11 @@ public class CadastrarLivro {
         System.out.print("Autor: ");
         String autor = leitor.nextLine();
 
+        if (biblioteca.jaExiste(titulo)) {
+            System.out.println("Este livro já está cadastrado!");
+            return;
+        }
+
         int ano = lerAnoValido(leitor);
 
         Livro novoLivro = new Livro(titulo, autor, ano);
